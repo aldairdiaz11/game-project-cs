@@ -39,12 +39,30 @@ class Casino:
 class Games(Casino):
     def __init__(self, money, coins=0):
         super().__init__(money, coins)
+        self.play = False
 
     def black_jack(self):
         print("Welcome to Black Jack the minimum to play is 5 coins")
         if self.coins >= 5:
             self.coins -= 5
             print("You can play")
+            # Add game functionality later
+            self.play = True
+        # Once the game has ended play attribute is false
+        self.play = False
+
+    def poker(self):
+        print("Welcome to Poker the minimum to play is 10 coins")
+        if self.coins >= 10:
+            self.coins -= 10
+            print("You can play")
+            # Add game functionality later
+            self.play = True
+        # Once the game has ended play attribute is false
+        self.play = False
+
+    def __repr__(self):
+        return "This class implements the casino games"
 
 
 # TEST
@@ -54,3 +72,4 @@ print(user_1.coins)
 
 user_1.black_jack()
 print(user_1.coins)
+print(user_1)
